@@ -12,8 +12,11 @@ import javax.swing.JPanel;
 import block.Block;
 import block.Block1;
 import block.Block2;
+import block.BlockBar;
 import block.BlockBar3;
+import block.BlockL;
 import block.BlockL3;
+import block.BlockSq;
 
 public class Main {
 	// boxの一辺の長さ
@@ -30,13 +33,19 @@ public class Main {
 	
 	// 乱数の種
 	private static int RANDOM_SEED = 0;
+	
+	// ブロックの初期x座標
+	private static int INIT_X = 4;
+	
+	// ブロックの初期y座標
+	private static int INIT_Y = 0;	
 
 	// フィールドを描画するときの横幅と縦の長さ
 	private static Dimension mainPanelSize = new Dimension(FIELD_WIDTH * BOX_SIZE, FIELD_HEIGHT * BOX_SIZE);
 
 	
 	// フィールド
-	private static final Field field = new Field(FIELD_WIDTH, FIELD_HEIGHT);
+	private static Field field;
 	
 	// タイマーのカウンター
 	private static int counter = MAX_COUNT;
@@ -52,19 +61,28 @@ public class Main {
 	 */
 	public static Block createBlock() {
 		Block ret = null;
-		int n = random.nextInt(4);
+		int n = random.nextInt(7);
 		
 		if (n == 0) {
-			ret = new Block1(1, 0, Color.BLUE);
+			ret = new Block1(INIT_X, INIT_Y, Color.BLUE);
 			
 		} else if (n == 1) {
-			ret = new Block2(1, 0, Color.PINK);
+			ret = new Block2(INIT_X, INIT_Y, Color.PINK);
 
 		} else if (n == 2) {
-			ret = new BlockBar3(1, 0, Color.GRAY);
+			ret = new BlockBar3(INIT_X, INIT_Y, Color.GRAY);
 
 		} else if (n == 3) {
-			ret = new BlockL3(1, 0, Color.ORANGE);
+			ret = new BlockL3(INIT_X, INIT_Y, Color.ORANGE);
+
+		} else if (n == 4) {
+			ret = new BlockBar(INIT_X, INIT_Y, Color.CYAN);
+
+		} else if (n == 5) {
+			ret = new BlockSq(INIT_X, INIT_Y, Color.RED);
+
+		} else if (n == 6) {
+			ret = new BlockL(INIT_X, INIT_Y, Color.YELLOW);
 		}
 		
 		return ret;
@@ -77,6 +95,8 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 
+		field = new Field(FIELD_WIDTH, FIELD_HEIGHT);
+				
 		//-----------------------------
 		// ウインドウの構築
 		//-----------------------------

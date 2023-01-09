@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.Set;
 import javax.swing.JPanel;
 
 import block.Block;
-import block.Block2;
 import block.Box;
 
 
@@ -31,7 +29,7 @@ public class Field {
 	
 	
 	// アクティブブロック(プレイヤーが動かせるブロック)
-	private Block activeBlock = new Block2(1, 0, Color.PINK);
+	private Block activeBlock;
 
 	
 	/**
@@ -44,6 +42,7 @@ public class Field {
 		this.height = height;
 		
 		f = new Box[height][width];
+		activeBlock = Main.createBlock();
 	}
 	
 	/**
