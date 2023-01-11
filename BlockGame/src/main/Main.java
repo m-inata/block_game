@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import block.Block;
-import block.Block1;
 import block.Block2;
 import block.BlockBar;
 import block.BlockBar3;
+import block.BlockJ;
 import block.BlockL;
 import block.BlockL3;
 import block.BlockSq;
@@ -52,6 +52,8 @@ public class Main {
 	
 	// 乱数発生器
 	private static Random random = new Random(RANDOM_SEED);
+	
+	public static boolean eraseTiming = false;
 
 	
 	
@@ -61,10 +63,10 @@ public class Main {
 	 */
 	public static Block createBlock() {
 		Block ret = null;
-		int n = random.nextInt(7);
+		int n = random.nextInt(8);
 		
 		if (n == 0) {
-			ret = new Block1(INIT_X, INIT_Y, Color.BLUE);
+			ret = new BlockJ(INIT_X, INIT_Y, Color.BLACK);
 			
 		} else if (n == 1) {
 			ret = new Block2(INIT_X, INIT_Y, Color.PINK);
@@ -83,7 +85,22 @@ public class Main {
 
 		} else if (n == 6) {
 			ret = new BlockL(INIT_X, INIT_Y, Color.YELLOW);
+
+		} else if (n == 7) {
+			ret = new BlockJ(INIT_X, INIT_Y, Color.BLACK);
+			
 		}
+		
+//		if (n == 0) {
+//			ret = new BlockJ(INIT_X, INIT_Y, Color.BLACK);
+//			
+//		} else if (n == 1) {
+//			ret = new Block2(INIT_X, INIT_Y, Color.PINK);
+//
+//		} else if (n == 2) {
+//			ret = new BlockL3(INIT_X, INIT_Y, Color.ORANGE);
+//
+//		}
 		
 		return ret;
 	}

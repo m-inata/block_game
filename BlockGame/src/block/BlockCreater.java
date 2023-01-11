@@ -9,7 +9,7 @@ public class BlockCreater {
 	
 	public static List<Block> create1(int x, int y, List<Box> boxes, int i) {
 		List<Block> ret = new ArrayList<>();
-		Box b = boxes.get(1);
+		Box b = boxes.get(i);
 		List<Point<Integer>> points = List.of(new Point<Integer>(b.getX(), b.getY()));
 		ret.add(new Block1(x, y, b.getColor(), points));
 		return ret;

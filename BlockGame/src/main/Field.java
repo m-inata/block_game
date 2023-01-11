@@ -189,16 +189,17 @@ public class Field {
 			unregister(block);
 		}
 		
-		// 消去された状態を一瞬報じするため
+		// 消去後のブロックに差し替え
+		for (Block block : afterBlocks) {
+			register(block);
+		}
+		
+		// 消去された状態を一瞬表示するため
+		Main.eraseTiming = true;
 		mainPanel.repaint();
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException ignore) {
-		}
-		
-		// 消去後のブロックに差し替え
-		for (Block block : afterBlocks) {
-			register(block);
 		}
 		
 		return true;

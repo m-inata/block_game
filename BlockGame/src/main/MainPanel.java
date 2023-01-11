@@ -42,7 +42,11 @@ public class MainPanel extends JPanel {
 		}
 		
 		// アクティブブロックの描画
-		Block activeBlock = field.getActiveBlock();
-		activeBlock.draw(g2);
+		if (!Main.eraseTiming) {
+			Block activeBlock = field.getActiveBlock();
+			activeBlock.draw(g2);
+		} else {
+			Main.eraseTiming = false;
+		}
 	}
 }
