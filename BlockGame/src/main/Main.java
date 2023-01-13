@@ -10,20 +10,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import block.Block;
-import block.Block2;
 import block.BlockBar;
-import block.BlockBar3;
 import block.BlockJ;
 import block.BlockL;
-import block.BlockL3;
+import block.BlockS;
 import block.BlockSq;
+import block.BlockT;
+import block.BlockZ;
 
 public class Main {
 	// boxの一辺の長さ
 	public static final int BOX_SIZE = 30;
 	
 	// フィールドにboxを横に並べられる個数
-	private static final int FIELD_WIDTH = 10;
+	private static final int FIELD_WIDTH = 5;
 	
 	// フィールドにboxを縦に積み上げられる個数
 	private static final int FIELD_HEIGHT = 20;
@@ -35,7 +35,7 @@ public class Main {
 	private static int RANDOM_SEED = 0;
 	
 	// ブロックの初期x座標
-	private static int INIT_X = 4;
+	private static int INIT_X = 1;
 	
 	// ブロックの初期y座標
 	private static int INIT_Y = 0;	
@@ -63,44 +63,30 @@ public class Main {
 	 */
 	public static Block createBlock() {
 		Block ret = null;
-		int n = random.nextInt(8);
+		int n = random.nextInt(7);
 		
 		if (n == 0) {
-			ret = new BlockJ(INIT_X, INIT_Y, Color.BLACK);
+			ret = new BlockBar(INIT_X, INIT_Y, Color.BLUE);
 			
 		} else if (n == 1) {
-			ret = new Block2(INIT_X, INIT_Y, Color.PINK);
+			ret = new BlockJ(INIT_X, INIT_Y, Color.PINK);
 
 		} else if (n == 2) {
-			ret = new BlockBar3(INIT_X, INIT_Y, Color.GRAY);
+			ret = new BlockL(INIT_X, INIT_Y, Color.GRAY);
 
 		} else if (n == 3) {
-			ret = new BlockL3(INIT_X, INIT_Y, Color.ORANGE);
+			ret = new BlockS(INIT_X, INIT_Y, Color.ORANGE);
 
 		} else if (n == 4) {
-			ret = new BlockBar(INIT_X, INIT_Y, Color.CYAN);
+			ret = new BlockSq(INIT_X, INIT_Y, Color.CYAN);
 
 		} else if (n == 5) {
-			ret = new BlockSq(INIT_X, INIT_Y, Color.RED);
+			ret = new BlockT(INIT_X, INIT_Y, Color.RED);
 
 		} else if (n == 6) {
-			ret = new BlockL(INIT_X, INIT_Y, Color.YELLOW);
+			ret = new BlockZ(INIT_X, INIT_Y, Color.YELLOW);
 
-		} else if (n == 7) {
-			ret = new BlockJ(INIT_X, INIT_Y, Color.BLACK);
-			
 		}
-		
-//		if (n == 0) {
-//			ret = new BlockJ(INIT_X, INIT_Y, Color.BLACK);
-//			
-//		} else if (n == 1) {
-//			ret = new Block2(INIT_X, INIT_Y, Color.PINK);
-//
-//		} else if (n == 2) {
-//			ret = new BlockL3(INIT_X, INIT_Y, Color.ORANGE);
-//
-//		}
 		
 		return ret;
 	}
