@@ -23,7 +23,7 @@ public class Main {
 	public static final int BOX_SIZE = 30;
 	
 	// フィールドにboxを横に並べられる個数
-	private static final int FIELD_WIDTH = 5;
+	private static final int FIELD_WIDTH = 10;
 	
 	// フィールドにboxを縦に積み上げられる個数
 	private static final int FIELD_HEIGHT = 20;

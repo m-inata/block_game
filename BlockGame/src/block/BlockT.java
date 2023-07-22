@@ -81,7 +81,7 @@ public class BlockT extends Block {
 			ret = BlockCreater.create3(x, y, boxes, 0, 2, 3);
 
 		} else if (iBoxes.containsAll(Set.of(2))) {
-			ret = BlockCreater.create3(x, y, boxes, 3, 1, 2);
+			ret = BlockCreater.create3(x, y, boxes, 0, 1, 3);
 
 		} else if (iBoxes.containsAll(Set.of(3))) {
 			ret = BlockCreater.create3(x, y, boxes, 0, 1, 2);
