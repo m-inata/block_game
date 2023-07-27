@@ -32,10 +32,10 @@ public class Main {
 	private static int MAX_COUNT = 50;
 	
 	// 乱数の種
-	private static int RANDOM_SEED = 0;
+	private static int RANDOM_SEED = 1;
 	
 	// ブロックの初期x座標
-	private static int INIT_X = 1;
+	private static int INIT_X = 4;
 	
 	// ブロックの初期y座標
 	private static int INIT_Y = 0;	

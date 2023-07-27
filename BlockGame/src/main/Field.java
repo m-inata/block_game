@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 import javax.swing.JPanel;
 
@@ -126,11 +127,38 @@ public class Field {
 	 * @param block
 	 */
 	public void register(Block block) {
-		block.eachBox(box -> {
-			int x = block.getX() + box.getX();
-			int y = block.getY() + box.getY();
-			f[y][x] = box;
-		});
+		final class RegisterBoxes implements Consumer<Box> {
+			private boolean invalidPlace = false;
+			
+			public boolean isInvalidPlace() {
+				return invalidPlace;
+			}
+			
+			@Override
+			public void accept(Box box) {
+				int x = block.getX() + box.getX();
+				int y = block.getY() + box.getY();
+				if (x < 0 || y < 0) {
+					invalidPlace = true;
+				} else {
+					f[y][x] = box;
+				}
+			}
+		}
+
+//		block.eachBox(box -> {
+//			int x = block.getX() + box.getX();
+//			int y = block.getY() + box.getY();
+//			f[y][x] = box;
+//		});
+		
+		RegisterBoxes func = new RegisterBoxes();
+		block.eachBox(func);
+
+		if (func.isInvalidPlace()) {
+			System.err.println("Game Over!");
+			System.exit(0);
+		}
 		
 		falledBlocks.add(block);
 	}
